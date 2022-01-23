@@ -12,7 +12,7 @@
         public string Title { get; set; }
         public string Description { get; set; }
         public double Salary { get; set; }
-        public SkillsInputModel Skills { get; set; }
+        public ICollection<SkillInputModel> Skills { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
@@ -23,7 +23,7 @@
 
             if (this.Title.Length < 3 || this.Title.Length > 30)
             {
-                yield return new ValidationResult("Полето трябва да е между 3 и 30 символа.");
+                yield return new ValidationResult("Полето 'Наименование' трябва да е между 3 и 30 символа.");
             }
 
             if (string.IsNullOrWhiteSpace(this.Description))
@@ -33,7 +33,7 @@
 
             if (this.Description.Length < 20 || this.Description.Length > 10000)
             {
-                yield return new ValidationResult("Полето трябва да е между 20 и 10000 символа.");
+                yield return new ValidationResult("Полето 'Описание' трябва да е между 20 и 10000 символа.");
             }
 
             if (double.IsNaN(this.Salary) || this.Salary <= 0)

@@ -9,7 +9,7 @@
     public class RecruiterInputModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Моля въведете фамилия на рекрутера.")]
-        [StringLength(20, ErrorMessage = "Полето трябва да е между {2} и {0} символа.", MinimumLength = 3)]
+        [StringLength(20, ErrorMessage = "Полето 'Фамилия' трябва да е между {2} и {1} символа.", MinimumLength = 3)]
         public string LastName { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Моля въведете email адрес на рекрутера.")]
@@ -17,7 +17,7 @@
         public string Email { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Моля въведете държавата, в която се намира кандидата")]
-        [StringLength(30, ErrorMessage = "Полето трябва да е поне {2} символа.", MinimumLength = 3)]
+        [StringLength(30, ErrorMessage = "Полето 'Страна' трябва да е между {2} и {1} символа.", MinimumLength = 3)]
         public string Country { get; set; }
     }
 }

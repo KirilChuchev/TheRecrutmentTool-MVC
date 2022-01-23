@@ -7,7 +7,10 @@
     using System.Linq;
     using System.Threading.Tasks;
     using TheRecrutmentTool.Models.Candidate;
+    using TheRecrutmentTool.Models.Skill;
 
+    [ApiController]
+    [Route("[controller]")]
     public class CandidatesController : Controller
     {
         private readonly ILogger<CandidatesController> _logger;
@@ -17,7 +20,9 @@
             this._logger = logger;
         }
 
-        public async Task<IActionResult> Create([FromForm] CandidateInputModel model)
+        [HttpPost, ActionName("/")]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromBody] CandidateInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -27,8 +32,10 @@
             return this.View();
         }
 
+        [HttpPost, Route("all")]
         public async Task<IActionResult> All()
         {
+            ;
             return this.View("dvcwe");
         }
     }
