@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using TheRecrutmentTool.Models.Candidate;
 
     public class CandidatesController : Controller
     {
@@ -14,6 +15,16 @@
         public CandidatesController(ILogger<CandidatesController> logger)
         {
             this._logger = logger;
+        }
+
+        public async Task<IActionResult> Create([FromForm] CandidateInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            return this.View();
         }
 
         public async Task<IActionResult> All()
